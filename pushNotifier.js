@@ -17,8 +17,10 @@ module.exports.sendPush = function(tokens){
     cert: "./cert.pem",
     key: "./key.pem",
     passphrase:"",
-    // production: true
+   production: true
   });
+
+  console.log(service)
   
   
   var note = new apn.Notification();
