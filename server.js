@@ -3,6 +3,10 @@ var express = require('express');
 var app = express();
 var push = require('./pushNotifier.js')
 var port  = process.env.PORT || 5000
+var bodyParser = require('body-parser')
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -12,7 +16,23 @@ app.use(function(req, res, next) {
 var staticPath = path.join(__dirname, '/app');
 app.use(express.static(staticPath));
 
+app.get('/sendpush', (req, res) => {
+  res.sendFile(path.join(__dirname + '/app/push.html'));
+  // console.log(req.params.token)
+  // push.sendPush(req.params.token)
+  //   res.send('Push successfully sent!')
+})
+
+app.post('/sendpush',urlencodedParser, (req, res) => {
+  // res.sendFile(path.join(__dirname + '/app/push.html'));
+  console.log(req.body.devicetoken)
+  push.sendPush(req.body.devicetoken)
+    res.send('Push successfully sent!')
+})
+
+
 app.get('/sendpush/:token', (req, res) => {
+  // res.sendFile(path.join(__dirname + '/app/push.html'));
   console.log(req.params.token)
   push.sendPush(req.params.token)
     res.send('Push successfully sent!')

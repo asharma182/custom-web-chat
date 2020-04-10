@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
+    <style>
+        body { padding-top:50px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <form action="/sendpush" method="POST">
+                <label for="devicetoken_label">Enter Device Token: </label>
+                <input id="devicetoken" type="text" name="devicetoken" value="">
+                <input type="submit" value="OK">
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
