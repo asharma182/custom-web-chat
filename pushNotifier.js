@@ -13,38 +13,35 @@ var fs = require('fs');
 module.exports.sendPush = function(tokens){
   console.log(tokens)
 
-  var options = {
-    cert: './cert.pem',
-    key: './key.pem',
-   // production: true
-  };
-  var apnConnection = new apn.Connection(options);
-  let myDevice = ["0701e8b2212aef33448b6442b3130df151bd38f9c3010daa46f93f77c5c4cf2a"];
+  let service = new apn.Provider({
+    cert: "./cert.pem",
+    key: "./key.pem",
+    passphrase:"",
+    // production: true
+  });
+  
+  
   var note = new apn.Notification();
+  
   note.expiry = Math.floor(Date.now() / 1000) + 3600;
   note.badge = 0;
   note.sound = "ping.aiff";
-  // note.alert = "\uD83D\uDCE7 \u2709 You have a new message";
-  // note.payload = { 'messageFrom': 'Caroline' };
-  note.alert = {
-    "title": "New Win",
-    "subtitle": "Control HR Data in the Oracle Autonomous Data Warehouse "
-  }
-  note.payload = {
-    'id': 'WS-9jik65e06c4',
-    'notification_id': '3ndl7e1k6az6ljl',
-    'type': 'win',
-    'title': 'Control HR Data in the Oracle Autonomous Data Warehouse'
-  };
-  console.log(note)
-  apnConnection.pushNotification(note, myDevice)
-  apnConnection.on('error', function (error) {
-    console.error('APNS: Initialization error', error);
+  note.alert =     { title: 'Retail.com is currently offering ',
+  subtitle: '20% off its annual subscription fee for Loyalty Program' }    
+  note.payload =
+  { id: '11234567',
+    notification_id: '123456789',
+    type: 'push',
+    title: 'New Promotions',
+    intent: 'Promotions' }
+  note.topic = "com.oraclecorp.internal.assethub";
+  
+  console.log(`Sending: ${note.compile()} to ${tokens}`);
+  service.send(note, tokens).then( result => {
+      console.log("sent:", result.sent.length);
+      console.log("failed:", result.failed.length);
+      console.log(result.failed);    
   });
-
-  // A submission action has completed. This just means the message was submitted, not actually delivered.
-  apnConnection.on('completed', function (a) {
-    console.log('APNS: Completed sending', a);
-  });
-  return res.json({ success: "true" });
+  
+  service.shutdown();
 }
