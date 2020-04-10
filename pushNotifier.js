@@ -1,49 +1,47 @@
 "use strict";
 
 const apn = require("apn");
-var fs = require('fs');
-// fs.readFile('./cert.pem', (err, data) => {
-//   if (err) {
-//     console.error(err)
-//     return
-//   }
-//   console.log(data)
-// })
+
 //let tokens = ["c06e9231f0d9d4c448d615fbd51e5227865ce6732e0b438f61b663a1784adfc5"];
 module.exports.sendPush = function(tokens){
   console.log(tokens)
 
-  let service = new apn.Provider({
-    cert: "./cert.pem",
-    key: "./key.pem",
-    passphrase:"",
-   production: true
-  });
+  var options = {
+    cert: __dirname + '/cert.pem',
+    key: __dirname + '/key.pem',
+    //production: true
+  };
+  var apnConnection = new apn.Connection(options);
+  let myDevice = [];
+  myDevice.push(tokens)
+  //var myDevice = new apn.Device("00bd76584ff6119873e68a2bb2de964011828c32734c88aa4a985b5d37b8b582");
+  //var myDevice = new apn.Device("310bc0894b12e7db2fbc64d4717b8a18e1b733ec83a93d112228f7e87105e386","0ca9d6c570107c15b9bbbceed7b2f26fce43660e51e7b0b11b8b3941757efa67");
 
-  console.log(service)
-  
-  
   var note = new apn.Notification();
-  
   note.expiry = Math.floor(Date.now() / 1000) + 3600;
   note.badge = 0;
   note.sound = "ping.aiff";
-  note.alert =     { title: 'Retail.com is currently offering ',
-  subtitle: '20% off its annual subscription fee for Loyalty Program' }    
+  // note.alert = "\uD83D\uDCE7 \u2709 You have a new message";
+  // note.payload = { 'messageFrom': 'Caroline' };
+  note.alert = {
+    "title": "Retail.com is currently offering ",
+    "subtitle": "20% off its annual subscription fee for Loyalty Program"
+  }
   note.payload =
   { id: '11234567',
     notification_id: '123456789',
     type: 'push',
     title: 'New Promotions',
     intent: 'Promotions' }
-  note.topic = "com.oraclecorp.internal.assethub";
-  
-  console.log(`Sending: ${note.compile()} to ${tokens}`);
-  service.send(note, tokens).then( result => {
-      console.log("sent:", result.sent.length);
-      console.log("failed:", result.failed.length);
-      console.log(result.failed);    
+  console.log(note)
+  apnConnection.pushNotification(note, myDevice)
+  apnConnection.on('error', function (error) {
+    console.error('APNS: Initialization error', error);
   });
-  
-  service.shutdown();
+
+  // A submission action has completed. This just means the message was submitted, not actually delivered.
+  apnConnection.on('completed', function (a) {
+    console.log('APNS: Completed sending', a);
+  });
+
 }
