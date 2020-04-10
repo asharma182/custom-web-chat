@@ -2,8 +2,13 @@
 
 const apn = require("apn");
 var fs = require('fs');
-
-console.log()
+fs.readFile('./cert.pem', (err, data) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.log(data)
+})
 //let tokens = ["c06e9231f0d9d4c448d615fbd51e5227865ce6732e0b438f61b663a1784adfc5"];
 module.exports.sendPush = function(tokens){
   console.log(tokens)
