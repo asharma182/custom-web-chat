@@ -18,12 +18,12 @@ app.get('/sendpush/:token', (req, res) => {
     res.send('Push successfully sent!')
 })
 
-// app.listen(process.env.PORT || 5000, function() {
-//   console.log('listening on port 5000');
-// });
-
-app.listen( 5000, function() {
+app.listen(process.env.PORT || 5000, function() {
   console.log('listening on port 5000');
 });
+
+// app.listen( 5000, function() {
+//   console.log('listening on port 5000');
+// });
 
 
