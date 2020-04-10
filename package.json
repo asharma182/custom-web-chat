@@ -4,9 +4,12 @@
   "description": "The chat sample app is a mobile app that demonstrates communication with the Oracle Intelligent Bots server.",
   "author": "Oracle Bots Client SDK Team",
   "contributors": [
-    { "name": "Supradeep Gunti" }
+    {
+      "name": "Supradeep Gunti"
+    }
   ],
   "dependencies": {
+    "apn": "^2.2.0",
     "express": "^4.16.2"
   },
   "devDependencies": {},

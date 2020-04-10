@@ -33,7 +33,7 @@ module.exports.sendPush = function(tokens){
   service.send(note, tokens).then( result => {
       console.log("sent:", result.sent.length);
       console.log("failed:", result.failed.length);
-      console.log(result.failed);  
+      console.log(result.failed);    
   });
   
   service.shutdown();
