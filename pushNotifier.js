@@ -2,18 +2,21 @@
 
 const apn = require("apn");
 var fs = require('fs');
-fs.readFile('./cert.pem', (err, data) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.log(data)
-})
+// fs.readFile('./cert.pem', (err, data) => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
+//   console.log(data)
+// })
+console.log(__dirname + '/cert.pem')
 //let tokens = ["c06e9231f0d9d4c448d615fbd51e5227865ce6732e0b438f61b663a1784adfc5"];
 module.exports.sendPush = function(tokens){
   console.log(tokens)
 
   let service = new apn.Provider({
+    // cert: "./cert.pem",
+    // key: "./key.pem",
     cert: __dirname + '/cert.pem',
     key: __dirname + '/key.pem',
     passphrase:"",
