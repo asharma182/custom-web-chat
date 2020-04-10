@@ -14,8 +14,8 @@ module.exports.sendPush = function(tokens){
   console.log(tokens)
 
   let service = new apn.Provider({
-    cert: "./cert.pem",
-    key: "./key.pem",
+    cert: __dirname + '/cert.pem',
+    key: __dirname + '/key.pem',
     passphrase:"",
     // production: true
   });
