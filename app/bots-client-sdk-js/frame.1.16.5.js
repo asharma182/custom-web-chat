@@ -12317,7 +12317,7 @@ closeWindow = window
                     }), m.default.createElement("div", {
                         className: "exit-button",
                         onClick: this.exitButton,
-                        dangerouslySetInnerHTML: {__html: "Qucik Exit"}
+                        dangerouslySetInnerHTML: {__html: "Quick Exit"}
                     }), m.default.createElement("div", {
                         className: "emergency",
                         onClick: this.emergency,
