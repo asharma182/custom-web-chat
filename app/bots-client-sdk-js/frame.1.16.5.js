@@ -3,6 +3,7 @@
  * License: https://www.oracle.com/tos/
  */
 window.myData= window.localStorage.getItem('intent', 'Tom')
+closeWindow = window
 ! function(e) {
     function t(n) {
         if (r[n]) return r[n].exports;
@@ -12222,7 +12223,7 @@ window.myData= window.localStorage.getItem('intent', 'Tom')
         x = n(15),
         w = n(205),
         I = n(37),
-        O = t.IntroductionComponent = function(e) {
+        O = t.IntroductionComponent = function(e, win) {
             function t() {
                 var e;
                 (0, u.default)(this, t);
@@ -12257,6 +12258,36 @@ window.myData= window.localStorage.getItem('intent', 'Tom')
                         t !== o && n((0, x.setIntroHeight)(o))
                     }
                 }
+            },{
+                key: 'exitButton',
+                value: function(){
+                    console.log(win)
+                    // win.close()
+                    top.window.location.href='https://www.google.com'
+                    localStorage.clear()
+                    //win.open("", "myWindow", "width=200, height=100");
+                    // win.location.replace("https://www.google.com");
+                //     location.reload();
+                //     //win.location.href = "https://www.google.com";
+                //     //win.assign("https://www.w3schools.com")
+                //     localStorage.clear()
+                //    location.replace("https://www.google.com");
+                }
+            },{
+                key: 'emergency',
+                value: function(){
+                    // alert('Connecting to Advocate now')
+                    var phone =  prompt('Enter the phone number')
+                    const Http = new XMLHttpRequest();
+                   const url='https://custom-web-chat.herokuapp.com/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
+                    //const url='http://127.0.0.1:5000/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
+                    Http.open("GET", url);
+                    Http.send();
+                    Http.onreadystatechange=(e)=>{
+                    console.log(Http.responseText)
+                    }
+                    //location.replace("https://www.google.com");
+                }
             }, {
                 key: "render",
                 value: function() {
@@ -12283,12 +12314,20 @@ window.myData= window.localStorage.getItem('intent', 'Tom')
                     }, n.businessName), m.default.createElement("div", {
                         className: "intro-text",
                         dangerouslySetInnerHTML: (0, w.createMarkup)(u)
+                    }), m.default.createElement("div", {
+                        className: "exit-button",
+                        onClick: this.exitButton,
+                        dangerouslySetInnerHTML: {__html: "Qucik Exit"}
+                    }), m.default.createElement("div", {
+                        className: "emergency",
+                        onClick: this.emergency,
+                        dangerouslySetInnerHTML: {__html: "Emergency"}
                     }), a ? m.default.createElement(S.default, {
                         items: i
                     }) : null)
                 }
             }]), t
-        }(h.Component);
+        }(h.Component, closeWindow);
     O.propTypes = {
         dispatch: g.default.func.isRequired,
         appState: g.default.object.isRequired,
@@ -26936,7 +26975,7 @@ window.myData= window.localStorage.getItem('intent', 'Tom')
                 inputPlaceholder: "Type a message...",
                 inputPlaceholderBlocked: "Complete the form above...",
                 introAppText: "Message us below or from your favorite app.",
-                introductionText: "We're here to talk, so ask us anything!",
+                introductionText: "Type 'exit' for hotexit from the chat!",
                 invalidFileError: "Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).",
                 lineChannelDescription: "To talk to us using LINE, scan this QR code using the LINE app and send us a message.",
                 locationNotSupported: "Your browser does not support location services or it’s been disabled. Please type your location instead.",
@@ -34225,6 +34264,16 @@ window.myData= window.localStorage.getItem('intent', 'Tom')
                 key: "onChange",
                 value: function(e) {
                     var t = e.target.value;
+                    console.log(t)
+                    if(t.trim()==='exit'){
+                        console.log(window)
+                        // window.close();
+                        // window.location.href = 'http://www.google.com'
+                        // location.reload();
+                        top.window.close()
+                        top.window.location.href='https://www.google.com'
+                        localStorage.clear()
+                    }
                     this.checkAndResetUnreadCount(this.props.unreadCount), this.setState({
                         text: t
                     }), t.trim() && this.props.dispatch((0, w.startTyping)())

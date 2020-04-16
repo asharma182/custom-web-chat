@@ -24,8 +24,8 @@ module.exports.sendPush = function(tokens){
   // note.alert = "\uD83D\uDCE7 \u2709 You have a new message";
   // note.payload = { 'messageFrom': 'Caroline' };
   note.alert = {
-    "title": "Retail.com is currently offering ",
-    "subtitle": "20% off its annual subscription fee for Loyalty Program"
+    "title": "Emergency - Domestic Violence Case",
+    "subtitle": "A Victim Wants to report Case!"
   }
   note.payload =
   { id: '11234567',

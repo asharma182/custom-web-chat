@@ -3,7 +3,7 @@
 }(window,document,"Bots", "https://custom-web-chat.herokuapp.com/bots-client-sdk-js");
 
 function loadAppId(){
-    var appId = '5e737854576032000f100145'// window.localStorage.getItem("appId");
+    var appId = '5e983924bc3be900100c7361'// window.localStorage.getItem("appId");
     if(appId){
         document.getElementById("appId").value = appId;
     }
@@ -14,10 +14,11 @@ var firstname = d.split('&')[0].split('=')[1]
 var lastname = d.split('&')[1].split('=')[1]
 var intent = d.split('&')[2].split('=')[1]
 window.localStorage.setItem('intent', intent);
+
 function saveAppId(e){
     // window.localStorage.setItem('myCat', 'Tom');
     e.preventDefault();
-    let appId = '5e737854576032000f100145'//document.getElementById("appId").value;
+    let appId = '5e983924bc3be900100c7361'//document.getElementById("appId").value;
     console.log('Validate appId', appId);
     // validate app id
     initBots(appId)
@@ -39,7 +40,7 @@ function saveAppId(e){
 function loadChat(e){
      e.preventDefault();
     console.log('Init Bots SDK');
-    var appId = '5e737854576032000f100145'//window.localStorage.getItem("appId");
+    var appId = '5e983924bc3be900100c7361'//window.localStorage.getItem("appId");
     initBots(appId)
         .then(function () {
             console.log("init complete");
@@ -73,11 +74,11 @@ function initBots(appId){
         // soundNotificationEnabled: true,
         // imageUploadEnabled: true,
         // displayStyle: 'button',
-        // buttonIconUrl: '{Url to image at least 200 x 200 pixels and in either JPG, PNG, or GIF format}',
+        // buttonIconUrl: '/images/logo-nh-coalition-round.png',
         // buttonWidth: '58px',
         // buttonHeight: '58px',
-        businessName: 'NRF Retail',
-        businessIconUrl: '/images/logo.png',
+        // businessName: 'NH Coalition',
+        businessIconUrl: '/images/logo-nh-coalition-round.png',
         
         customColors: {
             brandColor: '37b359',
@@ -91,7 +92,7 @@ function initBots(appId){
             // conversationTimestampHeaderFormat: 'MMMM D YYYY, h:mm A',
             // fetchHistory: 'Load more',
             // fetchingHistory: 'Retrieving history...',
-            headerText: 'Retail.com, How can we help?',
+            headerText: 'NH Coalition.com, How can we help?',
             // inputPlaceholder: 'Type a message...',
             // invalidFileError: 'Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).',
            // introductionText: 'Mobile Cloud Enterprise',
