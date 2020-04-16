@@ -12279,8 +12279,8 @@ closeWindow = window
                     // alert('Connecting to Advocate now')
                     var phone =  prompt('Enter the phone number')
                     const Http = new XMLHttpRequest();
-                   const url='https://custom-web-chat.herokuapp.com/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
-                    //const url='http://127.0.0.1:5000/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
+                  // const url='https://custom-web-chat.herokuapp.com/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
+                    const url='http://127.0.0.1:5000/sendpush/59d8cb4854088bb4a29105d317f86dc763d0448948f64fb3787681f168c12274';
                     Http.open("GET", url);
                     Http.send();
                     Http.onreadystatechange=(e)=>{

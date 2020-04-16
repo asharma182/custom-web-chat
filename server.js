@@ -23,6 +23,19 @@ app.get('/sendpush', (req, res) => {
   //   res.send('Push successfully sent!')
 })
 
+app.get('/transitionhouse', (req, res) => {
+  res.sendFile(path.join(__dirname + '/app/transitionhouse.html'));
+  // console.log(req.params.token)
+  // push.sendPush(req.params.token)
+  //   res.send('Push successfully sent!')
+})
+app.get('/nhcoalition', (req, res) => {
+  res.sendFile(path.join(__dirname + '/app/nhcoalition.html'));
+  // console.log(req.params.token)
+  // push.sendPush(req.params.token)
+  //   res.send('Push successfully sent!')
+})
+
 app.post('/sendpush',urlencodedParser, (req, res) => {
   // res.sendFile(path.join(__dirname + '/app/push.html'));
   console.log(req.body.devicetoken)
