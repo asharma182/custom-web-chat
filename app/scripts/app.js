@@ -12,7 +12,9 @@ function loadAppId(){
 var d= window.location.href.split('?')[1]
 var firstname = d.split('&')[0].split('=')[1]
 var lastname = d.split('&')[1].split('=')[1]
-var intent = d.split('&')[2].split('=')[1]
+var email = d.split('&')[2].split('=')[1]
+var intent = d.split('&')[3].split('=')[1]
+console.log(email)
 window.localStorage.setItem('intent', intent);
 function saveAppId(e){
     // window.localStorage.setItem('myCat', 'Tom');
