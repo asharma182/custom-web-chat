@@ -14,7 +14,7 @@ var firstname = d.split('&')[0].split('=')[1]
 var lastname = d.split('&')[1].split('=')[1]
 var email = d.split('&')[2].split('=')[1]
 var intent = d.split('&')[3].split('=')[1]
-console.log(email)
+//console.log(email)
 window.localStorage.setItem('intent', intent);
 function saveAppId(e){
     // window.localStorage.setItem('myCat', 'Tom');
@@ -71,20 +71,20 @@ function initBots(appId){
     return Bots.init({
         appId: appId,
 
-        // locale: 'en-US',
+         locale: 'en-US',
         // soundNotificationEnabled: true,
         // imageUploadEnabled: true,
         // displayStyle: 'button',
-        // buttonIconUrl: '{Url to image at least 200 x 200 pixels and in either JPG, PNG, or GIF format}',
+         buttonIconUrl: '/images/chat-lady.png',
         // buttonWidth: '58px',
         // buttonHeight: '58px',
         businessName: 'NRF Retail',
         businessIconUrl: '/images/logo.png',
         
         customColors: {
-            brandColor: '37b359',
-            conversationColor: '65758e',
-             actionColor: '65758e',
+            brandColor: 'e83d37',
+            conversationColor: 'e83d37',
+             actionColor: 'e83d37',
         },
 
         customText: {
@@ -118,11 +118,12 @@ function initBots(appId){
             // unsupportedActionType: 'Unsupported action type.'
         }
     }).then(function (res){
+        console.log(email)
         Bots.updateUser(
             {
                 "givenName": firstname, 
                 "surname": lastname, 
-                "email": "abhishek.sharma@winterfell.com", 
+                "email":  email, 
                 "properties": { 
                     "smoochCustomVariable1":"Lord", 
                     "smoochCustomVariable2":"Commander"

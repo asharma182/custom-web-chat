@@ -11889,7 +11889,7 @@ closeWindow = window
                         className: this._getAvatarClasses(o)
                     }, m.default.createElement("img", {
                         alt: name + "'s avatar",
-                        src: t
+                        src: '../images/chat-lady.png'
                     }))
                 }
             }]), t
