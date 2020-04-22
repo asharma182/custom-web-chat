@@ -38,8 +38,8 @@ app.get('/nhcoalition', (req, res) => {
 
 app.post('/sendpush',urlencodedParser, (req, res) => {
   // res.sendFile(path.join(__dirname + '/app/push.html'));
-  console.log(req.body.devicetoken)
-  push.sendPush(req.body.devicetoken)
+  console.log(req.body)
+  push.sendPush(req.body.devicetoken, req.body.intent )
     res.send('Push successfully sent!')
 })
 
@@ -47,7 +47,7 @@ app.post('/sendpush',urlencodedParser, (req, res) => {
 app.get('/sendpush/:token', (req, res) => {
   // res.sendFile(path.join(__dirname + '/app/push.html'));
   console.log(req.params.token)
-  push.sendPush(req.params.token)
+  push.sendPush(req.params.token, 'loyalty')
     res.send('Push successfully sent!')
 })
 

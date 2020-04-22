@@ -3,7 +3,7 @@
 const apn = require("apn");
 
 //let tokens = ["c06e9231f0d9d4c448d615fbd51e5227865ce6732e0b438f61b663a1784adfc5"];
-module.exports.sendPush = function(tokens){
+module.exports.sendPush = function(tokens, intent){
   console.log(tokens)
 
   var options = {
@@ -24,15 +24,17 @@ module.exports.sendPush = function(tokens){
   // note.alert = "\uD83D\uDCE7 \u2709 You have a new message";
   // note.payload = { 'messageFrom': 'Caroline' };
   note.alert = {
-    "title": "Emergency - Domestic Violence Case",
-    "subtitle": "A Victim Wants to report Case!"
+    // "title": "Emergency - Domestic Violence Case",
+    // "subtitle": "A Victim Wants to report Case!"
+    "title": "Retail.com - Loyalty/Promotions",
+    "subtitle": "15% off on all promotions"
   }
   note.payload =
   { id: '11234567',
     notification_id: '123456789',
     type: 'push',
     title: 'New Promotions',
-    intent: 'Promotions' }
+    intent: intent }
   console.log(note)
   apnConnection.pushNotification(note, myDevice)
   apnConnection.on('error', function (error) {
