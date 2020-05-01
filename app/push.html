@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Sample Site</title>
+    <title>Retail.com Consumer App Push Notification System</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <style>
-        body { padding-top:50px; }
+        body {
+            padding-top: 50px;
+        }
+
+        #email {
+            height: 200;
+            width: 200;
+        }
+
+        input[type=text], textarea, #intent {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
+        <img src="./images/logo-banner.png"/>
         <div class="jumbotron">
             <form action="/sendpush" method="POST">
-                <label for="devicetoken_label">Enter Device Token: </label>
-                <input id="devicetoken" type="text" name="devicetoken" value="">
-                <label for="devicetoken_label">Enter User Intent: </label>
-                <input id="intent" type="text" name="intent" value="">
+                <!-- <label for="devicetoken_label">Enter Device Token: </label>
+                <input id="devicetoken" type="text" name="devicetoken" value=""> -->
+                <label for="user_email">Enter Customer's Email (required): </label>
+                <textarea id="email" type="text" name="email" value=""></textarea>
+                <!-- <label for="user_intent">Enter User Intent: </label>
+                <input id="intent" type="text" name="intent" value=""> -->
+                <select id="intent" name='intent'>
+                    <option value="">Select intent</option>
+                    <option value="loyalty">Loyalty Program</option>
+                    <option value="survey">Survey</option>
+                    <option value="pickup">Order Ready for Pickup</option>
+                  </select>
+                <!-- <label for="user_email">Enter email to send push: </label>
+                <textarea id="email" type="text" name="email" value=""></textarea> -->
                 <input type="submit" value="OK">
             </form>
 
@@ -25,4 +55,5 @@
     </div>
 
 </body>
+
 </html>

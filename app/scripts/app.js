@@ -78,7 +78,7 @@ function initBots(appId){
          buttonIconUrl: '/images/chat-lady.png',
         // buttonWidth: '58px',
         // buttonHeight: '58px',
-        businessName: 'NRF Retail',
+        businessName: 'Retail.com',
         businessIconUrl: '/images/logo.png',
         
         customColors: {

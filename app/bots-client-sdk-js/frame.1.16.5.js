@@ -12317,12 +12317,14 @@ closeWindow = window
                     }), m.default.createElement("div", {
                         className: "exit-button",
                         onClick: this.exitButton,
-                        dangerouslySetInnerHTML: {__html: "Quick Exit"}
-                    }), m.default.createElement("div", {
-                        className: "emergency",
-                        onClick: this.emergency,
-                        dangerouslySetInnerHTML: {__html: "Emergency"}
-                    }), a ? m.default.createElement(S.default, {
+                        dangerouslySetInnerHTML: {__html: "Clear Chat"}
+                    }),
+                    //  m.default.createElement("div", {
+                    //     className: "emergency",
+                    //     onClick: this.emergency,
+                    //     dangerouslySetInnerHTML: {__html: "Emergency"}
+                    // }),
+                     a ? m.default.createElement(S.default, {
                         items: i
                     }) : null)
                 }
@@ -26975,7 +26977,8 @@ closeWindow = window
                 inputPlaceholder: "Type a message...",
                 inputPlaceholderBlocked: "Complete the form above...",
                 introAppText: "Message us below or from your favorite app.",
-                introductionText: "Type 'exit' for hotexit from the chat!",
+                // introductionText: "Type 'exit' for hotexit from the chat!",
+                introductionText: "Nicole will help you with your queries!",
                 invalidFileError: "Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).",
                 lineChannelDescription: "To talk to us using LINE, scan this QR code using the LINE app and send us a message.",
                 locationNotSupported: "Your browser does not support location services or it’s been disabled. Please type your location instead.",
@@ -31286,7 +31289,7 @@ closeWindow = window
             },
             scrollContainer: {
                 display: "flex",
-                whiteSpace: "nowrap",
+                // whiteSpace: "nowrap",
                 overflowX: "scroll",
                 paddingLeft: A.AVATAR_CONTAINER.WIDTH + "px"
             },
@@ -34265,15 +34268,15 @@ closeWindow = window
                 value: function(e) {
                     var t = e.target.value;
                     console.log(t)
-                    if(t.trim()==='exit'){
-                        console.log(window)
-                        // window.close();
-                        // window.location.href = 'http://www.google.com'
-                        // location.reload();
-                        top.window.close()
-                        top.window.location.href='https://www.google.com'
-                        localStorage.clear()
-                    }
+                    // if(t.trim()==='exit'){
+                    //     console.log(window)
+                    //     // window.close();
+                    //     // window.location.href = 'http://www.google.com'
+                    //     // location.reload();
+                    //     top.window.close()
+                    //     top.window.location.href='https://www.google.com'
+                    //     localStorage.clear()
+                    // }
                     this.checkAndResetUnreadCount(this.props.unreadCount), this.setState({
                         text: t
                     }), t.trim() && this.props.dispatch((0, w.startTyping)())

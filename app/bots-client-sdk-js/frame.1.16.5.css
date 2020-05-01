@@ -2128,17 +2128,17 @@ fieldset[disabled] .btn-reply-action:hover {
 }
 
 .intro-pane .exit-button {
-    background-color: #4CAF50; 
+    background-color: #14c39a; 
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 10px;
   }
-  .intro-pane .emergency {
+  /* .intro-pane .emergency {
     background-color: red; 
     border: none;
     color: white;
@@ -2151,7 +2151,7 @@ fieldset[disabled] .btn-reply-action:hover {
   }
   .intro-pane .exit-button {
     float: left
-}
+} */
 .intro-pane .app-icon {
     float: left;
     width: 50px;
