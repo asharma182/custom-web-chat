@@ -9,7 +9,7 @@ module.exports.sendPush = function (tokens, intent) {
   var options = {
     cert: __dirname + '/cert.pem',
     key: __dirname + '/key.pem',
-    production: false
+    production: true
   };
   var apnConnection = new apn.Connection(options);
   let myDevice = tokens;
