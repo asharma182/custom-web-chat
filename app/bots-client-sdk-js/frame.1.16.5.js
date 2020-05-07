@@ -12321,7 +12321,7 @@ closeWindow = window
                     }), m.default.createElement("div", {
                         className: "emergency",
                         onClick: this.emergency,
-                        dangerouslySetInnerHTML: {__html: "Emergency"}
+                        dangerouslySetInnerHTML: {__html: "Call advocate"}
                     }), a ? m.default.createElement(S.default, {
                         items: i
                     }) : null)
@@ -26975,7 +26975,7 @@ closeWindow = window
                 inputPlaceholder: "Type a message...",
                 inputPlaceholderBlocked: "Complete the form above...",
                 introAppText: "Message us below or from your favorite app.",
-                introductionText: "Type 'exit' for hotexit from the chat!",
+                introductionText: "Disclaimer: This chat can help you connect to resources and services across New Hampshire. It is not monitored 24/7. To speak with a live advocate immediately call 1-866-644-3574 (domestic violence) or 1-800-277-5570 (sexual assault)",
                 invalidFileError: "Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).",
                 lineChannelDescription: "To talk to us using LINE, scan this QR code using the LINE app and send us a message.",
                 locationNotSupported: "Your browser does not support location services or it’s been disabled. Please type your location instead.",

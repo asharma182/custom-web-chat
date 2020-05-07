@@ -1974,7 +1974,8 @@ fieldset[disabled] .btn-reply-action:hover {
 .branding-color-dark #header .fa,
 .branding-color-dark #settings-header,
 .branding-color-dark #settings-header .fa {
-    color: #fff
+    color: #fff;
+    background-color: #56b7e8 !important;
 }
 
 .notification-container {
@@ -2128,8 +2129,8 @@ fieldset[disabled] .btn-reply-action:hover {
 }
 
 .intro-pane .exit-button {
-    background-color: #4CAF50; 
-    border: none;
+    background-color: #14c39a; 
+    /* border: none; */
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -2137,10 +2138,11 @@ fieldset[disabled] .btn-reply-action:hover {
     display: inline-block;
     font-size: 16px;
     margin: 10px;
+    border-radius: 30px;
   }
   .intro-pane .emergency {
-    background-color: red; 
-    border: none;
+    background-color: #e83d37; 
+    /* border: none; */
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -2148,10 +2150,12 @@ fieldset[disabled] .btn-reply-action:hover {
     display: inline-block;
     font-size: 16px;
     margin: 10px;
+    border-radius: 30px;
   }
   .intro-pane .exit-button {
     float: left
 }
+
 .intro-pane .app-icon {
     float: left;
     width: 50px;
