@@ -82,8 +82,8 @@ function initBots(appId){
         
         customColors: {
             brandColor: '37b359',
-            conversationColor: '65758e',
-             actionColor: '65758e',
+            conversationColor: 'e4862c',
+             actionColor: 'e4862c',
         },
 
         customText: {
