@@ -29,6 +29,12 @@ app.get('/transitionhouse', (req, res) => {
   // push.sendPush(req.params.token)
   //   res.send('Push successfully sent!')
 })
+app.get('/covid19help', (req, res) => {
+  res.sendFile(path.join(__dirname + '/app/covid19help.html'));
+  // console.log(req.params.token)
+  // push.sendPush(req.params.token)
+  //   res.send('Push successfully sent!')
+})
 app.get('/nhcoalition', (req, res) => {
   res.sendFile(path.join(__dirname + '/app/nhcoalition.html'));
   // console.log(req.params.token)

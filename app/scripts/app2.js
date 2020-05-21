@@ -3,7 +3,7 @@
 }(window,document,"Bots", "https://custom-web-chat.herokuapp.com/bots-client-sdk-js");
 
 function loadAppId(){
-    var appId = '5e983924bc3be900100c7361'// window.localStorage.getItem("appId");
+    var appId = '5ec66d8e52877e000f39d744'// window.localStorage.getItem("appId");
     if(appId){
         document.getElementById("appId").value = appId;
     }
@@ -18,7 +18,7 @@ window.localStorage.setItem('intent', intent);
 function saveAppId(e){
     // window.localStorage.setItem('myCat', 'Tom');
     e.preventDefault();
-    let appId = '5e983924bc3be900100c7361'//document.getElementById("appId").value;
+    let appId = '5ec66d8e52877e000f39d744'//document.getElementById("appId").value;
     console.log('Validate appId', appId);
     // validate app id
     initBots(appId)
@@ -40,7 +40,7 @@ function saveAppId(e){
 function loadChat(e){
      e.preventDefault();
     console.log('Init Bots SDK');
-    var appId = '5e983924bc3be900100c7361'//window.localStorage.getItem("appId");
+    var appId = '5ec66d8e52877e000f39d744'//window.localStorage.getItem("appId");
     initBots(appId)
         .then(function () {
             console.log("init complete");
